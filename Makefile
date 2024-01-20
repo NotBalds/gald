@@ -1,3 +1,3 @@
 demo:
-	g++ -I ./include $(ncurses-config --cflags) $(ncurses-config -- libs) ./src/example.cpp -oout
+	g++ -I ./include $(shell ncurses-config --cflags) $(shell ncurses-config --libs) ./src/example.cpp -oout
 	./out
