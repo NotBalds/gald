@@ -18,8 +18,20 @@ int main() {
 	
 	Gald::Window win(&scene);
 
-	while (win.get_event() != 'q') {
+	char ch = win.get_event();
+	while (ch != 'q') {
 		win.update();
+		int x = sprite.get_x();
+		int y = sprite.get_y();
+		if (ch == 'd')
+			sprite.set_x(x + 1);
+		if (ch == 'w')
+			sprite.set_y(y - 1);
+		if (ch == 'a')
+			sprite.set_x(x - 1);
+		if (ch == 's')
+			sprite.set_y(y + 1);
+		ch = win.get_event();
 		usleep(5000);
 	}
 }

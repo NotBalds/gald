@@ -25,6 +25,7 @@ namespace Gald {
 			return getch();
 		}
 		void update() {
+			clear();
 			_root_object->_update();
 		}
 	};
