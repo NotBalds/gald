@@ -15,6 +15,7 @@ namespace Gald {
 			this->draw();
 		}
 	public:
+		Sprite(int x, int y, string name, string filename) : Object(x, y, name), _filename(filename) {}
 		void draw() {
 			ifstream file;
 			file.open(_filename);
@@ -26,6 +27,5 @@ namespace Gald {
 			}
 			file.close();
 		}
-		Sprite(int x, int y, string name, string filename) : Object(x, y, name), _filename(filename) {}
 	};
 }
