@@ -14,6 +14,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: deps
-      run: apt install -y libncursesw-dev
+      run: apt install -y libncursesw6-dev
     - name: make build
       run: make build
