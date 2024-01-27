@@ -41,11 +41,39 @@ namespace Gald {
 
 			return 0;
 		}
+		void remove_child_by_name(string name) {
+			Object* child = _children[name];
+			child->_parent = nullptr;
+			child->_absolute_x = child->_x;
+			child->_absolute_y = child->_y;
+			_children.erase(name);
+		}
 		Object* get_child_by_name(string name) {
 			return _children[name];
 		}
 		Object* get_parent() {
 			return _parent;
+		}
+		int get_x() {
+			return _x;
+		}
+		int get_y() {
+			return _y;
+		}
+		int get_absolute_x() {
+			return _absolute_x;
+		}
+		int get_absolute_y() {
+			return _absolute_y;
+		}
+		string get_name() {
+			return _name;
+		}
+		void set_x(int x) {
+			_x = x;
+		}
+		void set_y(int y) {
+			_y = y;
 		}
 		virtual void update() {
 			

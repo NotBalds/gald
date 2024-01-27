@@ -15,7 +15,7 @@
 		in rec {
 			devShell = pkgs.mkShell {
 				packages = with pkgs; [
-					ncurses
+					ncurses5
 				];
 			};
 		}

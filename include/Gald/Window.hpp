@@ -13,6 +13,7 @@ namespace Gald {
 		Window(Object* root_object) : _root_object(root_object) {
 			initscr();
 			nodelay(stdscr, true);
+			curs_set(0);
 			noecho();
 		}
 		~Window() {
@@ -25,7 +26,12 @@ namespace Gald {
 			return getch();
 		}
 		void update() {
+			clear();
 			_root_object->_update();
+		}
+		void exit() {
+			endwin();
+			std::exit(0);
 		}
 	};
 }
