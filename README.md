@@ -2,7 +2,8 @@
 ### I hope, other OS support will be soon
 
 # Dependencies
-- ```ncurses```
+- ```ncurses5```
+- ```ncursesw5```
 
 # Installation:
 - Gald is header-only, just clone the repo:
