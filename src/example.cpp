@@ -8,7 +8,7 @@ int main() {
 	Gald::Object scene(0, 0, "Scene");
 	Gald::Object object(0, 0, "Object");
 	Gald::Sprite sprite(0, 0, "Sprite", "sprite.txt");
-	Gald::Collider collider(0, 0, 9, 2, "Cld");
+	Gald::Collider collider(0, 0, 9, 3, "Cld");
 
 	if (scene.add_child(&object)) {
 		throw "Add child error\n";
@@ -20,7 +20,7 @@ int main() {
 
 	Gald::Object wall(10, 10, "Wall");
 	Gald::Sprite wall_sprite(0, 0, "Wall Sprite", "wall.txt");
-	Gald::Collider wall_collider(0, 0, 1, 5, "Wall Collider");
+	Gald::Collider wall_collider(0, 0, 12, 1, "Wall Collider");
 
 	wall.add_child(&wall_sprite);
 	wall.add_child(&wall_collider);
@@ -45,6 +45,13 @@ int main() {
 		Gald::Collider* cld = dynamic_cast<Gald::Collider*>(object.get_child_by_name("Cld"));
 		Gald::Collider* cld2 = dynamic_cast<Gald::Collider*>(wall.get_child_by_name("Wall Collider"));
 		if (cld->is_colliding(*cld2)) {
+			Gald::DialogButton continue_but('o', "Continue", [](){});
+			Gald::DialogButton exit_but('q', "Exit", [&win](){win.exit();});
+			
+			Gald::Dialog d("You died, continue?");
+			d.add_button(&continue_but);
+			d.add_button(&exit_but);
+			d.start();
 			object.set_x(0);
 			object.set_y(0);
 		}

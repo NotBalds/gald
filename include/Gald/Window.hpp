@@ -29,5 +29,9 @@ namespace Gald {
 			clear();
 			_root_object->_update();
 		}
+		void exit() {
+			endwin();
+			std::exit(0);
+		}
 	};
 }
