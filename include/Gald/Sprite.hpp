@@ -9,11 +9,15 @@ using namespace std;
 namespace Gald {
 	class Sprite : public Object {
 		string _filename;
+		bool _shown;
+
 	protected:
 		void _update() {
 			this->Object::_update();
-			this->draw();
+			if (_shown)
+				this->draw();
 		}
+
 	public:
 		Sprite(int x, int y, string name, string filename) : Object(x, y, name), _filename(filename) {}
 		void draw() {
@@ -26,6 +30,12 @@ namespace Gald {
 				y++;
 			}
 			file.close();
+		}
+		void hide() {
+			_shown = false;
+		}
+		void show() {
+			_shown = true;
 		}
 	};
 }
