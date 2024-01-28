@@ -26,4 +26,11 @@ namespace Gald {
 		int get_height() { return _height; }
 		int get_width() { return _width; }
 	};
+	/* class SmartCollider : public Object {
+	private:
+		Sprite _sprite;
+
+	public:
+		
+	}; */
 }

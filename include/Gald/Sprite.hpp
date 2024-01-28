@@ -31,6 +31,9 @@ namespace Gald {
 			}
 			file.close();
 		}
+		void set_filename(string filename) {
+			_filename = filename;
+		}
 		void hide() {
 			_shown = false;
 		}
