@@ -1,0 +1,43 @@
+\doxysection{Window.\+hpp}
+\hypertarget{Window_8hpp_source}{}\label{Window_8hpp_source}\index{include/Gald/Window.hpp@{include/Gald/Window.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <Gald/Gald.hpp>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <ncurses.h>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }Gald\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classGald_1_1Window}{Window}}\ \{}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classGald_1_1Object}{Object}}*\ \_root\_object;}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00013\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classGald_1_1Window}{Window}}(\mbox{\hyperlink{classGald_1_1Object}{Object}}*\ root\_object)\ :\ \_root\_object(root\_object)\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ initscr();}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ nodelay(stdscr,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ curs\_set(0);}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ noecho();}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classGald_1_1Window}{\string~Window}}()\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \ \ \ \ endwin();}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ set\_root\_object(\mbox{\hyperlink{classGald_1_1Object}{Object}}*\ obj)\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \_root\_object\ =\ obj;}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ get\_event()\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ getch();}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ update()\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ clear();}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \_root\_object-\/>\_update();}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ exit()\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ endwin();}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ std::exit(0);}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00036\ \ \ \ \ \};}
+\DoxyCodeLine{00037\ \}}
+
+\end{DoxyCode}
