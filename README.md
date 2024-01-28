@@ -10,9 +10,6 @@
 - ```git clone https://git.proggers.ru/NotBalds/gald```
 - And copy "include" directory to your project include directory
 
-# Running an example
-- Install dependencies and run ```make``` in repo directory
-
 # Contributing
 - If you're interested, you can make pull requests and I'll review them
 
