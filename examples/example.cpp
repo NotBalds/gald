@@ -1,30 +1,30 @@
+#include <SFML/Audio/SoundBuffer.hpp>
 #include <iostream>
 #include <unistd.h>
 #include <Gald/Gald.hpp>
+#include <Gald/Sounds.hpp>
 
 using namespace std;
 
 int main() {
 	Gald::Object scene(0, 0, "Scene");
-	Gald::Object object(0, 0, "Object");
-	Gald::Sprite sprite(0, 0, "Sprite", "sprite.txt");
-	Gald::Collider collider(0, 0, 9, 3, "Cld");
+	Gald::Object object(1, 1, "Object");
+	Gald::Sprite sprite(0, 0, "Sprite", "examples/spr.txt");
+	Gald::Collider collider(0, 0, 14, 1, "Cld");
 
-	if (scene.add_child(&object)) {
-		throw "Add child error\n";
-	}
-	if (object.add_child(&sprite)) {
-		throw "Add sprite error\n";
-	}
+	object.add_child(&sprite);
 	object.add_child(&collider);
 
 	Gald::Object wall(10, 10, "Wall");
-	Gald::Sprite wall_sprite(0, 0, "Wall Sprite", "wall.txt");
+	Gald::Sprite wall_sprite(0, 0, "Wall Sprite", "examples/wall.txt");
 	Gald::Collider wall_collider(0, 0, 12, 1, "Wall Collider");
 
 	wall.add_child(&wall_sprite);
 	wall.add_child(&wall_collider);
 
+	Gald::SoundPlayer snd("examples/sound.wav");
+	
+	scene.add_child(&object);
 	scene.add_child(&wall);
 	
 	Gald::Window win(&scene);
@@ -45,6 +45,7 @@ int main() {
 		Gald::Collider* cld = dynamic_cast<Gald::Collider*>(object.get_child_by_name("Cld"));
 		Gald::Collider* cld2 = dynamic_cast<Gald::Collider*>(wall.get_child_by_name("Wall Collider"));
 		if (cld->is_colliding(*cld2)) {
+			snd.play();
 			Gald::DialogButton continue_but('o', "Continue", [](){});
 			Gald::DialogButton exit_but('q', "Exit", [&win](){win.exit();});
 			

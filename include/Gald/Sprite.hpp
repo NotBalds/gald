@@ -9,7 +9,7 @@ using namespace std;
 namespace Gald {
 	class Sprite : public Object {
 		string _filename;
-		bool _shown;
+		bool _shown = true;
 
 	protected:
 		void _update() {
