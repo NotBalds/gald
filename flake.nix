@@ -16,6 +16,7 @@
 			devShell = pkgs.mkShell {
 				packages = with pkgs; [
 					ncurses5
+					sfml
 					doxygen
 				];
 			};
