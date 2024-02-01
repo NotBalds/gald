@@ -20,17 +20,12 @@ namespace Gald {
 			int h1 = _height;
 			int w2 = cld.get_width();
 			int h2 = cld.get_height();
-			return ((x1 < (x2 + w2)) && ((x1 + w1) > x2)) && ((y1 < (y2 + h2)) && ((y1 + h1) > y2));	
+			return ((x1 < (x2 + w2)) && ((x1 + w1) > x2)) && ((y1 < (y2 + h2)) && ((y1 + h1) > y2));
 		}
 
 		int get_height() { return _height; }
 		int get_width() { return _width; }
+		void set_width(int width) { _width = width; }
+		void set_height(int height) { _height = height; }
 	};
-	/* class SmartCollider : public Object {
-	private:
-		Sprite _sprite;
-
-	public:
-		
-	}; */
 }
